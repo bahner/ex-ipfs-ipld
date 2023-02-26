@@ -34,7 +34,7 @@ defmodule ExIpld.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ex_ipfs, "~> 0.1.1"},
+      {:ex_ipfs, "~> 0.1.2"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.2", only: [:dev, :test], runtime: false},
       {:ex_doc, "~> 0.29", only: :dev, runtime: false},

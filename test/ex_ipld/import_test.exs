@@ -39,4 +39,17 @@ defmodule ExIpld.ImportTest do
     assert {:error, data} = Import.new({:error, data})
     assert data == %{"Code" => 0, "Message" => "this is an error"}
   end
+
+  test "test import" do
+    {:ok, value} = ExIpld.export("bafyreia353cr2t26iiuw5g2triyfelqehsu5peq4pn2u6t6q6oktrplzly")
+    {:ok, imported} = ExIpld.import(value)
+    assert is_map(imported)
+    assert is_map(imported.root)
+    assert is_map(imported.stats)
+    assert %Import{} = imported
+    assert imported.root.cid./ === "bafyreia353cr2t26iiuw5g2triyfelqehsu5peq4pn2u6t6q6oktrplzly"
+    assert imported.root.pin_error_msg === ""
+    assert is_integer(imported.stats.block_bytes_count)
+    assert is_integer(imported.stats.block_count)
+  end
 end

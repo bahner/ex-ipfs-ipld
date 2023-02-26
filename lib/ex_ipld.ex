@@ -7,34 +7,18 @@ defmodule ExIpld do
   import ExIpfs.Utils
 
   alias ExIpfs.Api
-  alias ExIpfs.Link
 
-  alias ExIpld.Import
-  alias ExIpld.ImportRoot
-  alias ExIpld.ImportStats
+  alias ExIpfs.Link
 
   @typedoc """
   A struct that represents the import of a DAG.
   """
-  @type import :: %Import{
-          root: import_root(),
-          stats: import_stats()
-        }
-
-  @typedoc """
-  A struct that represents the root of an import of a DAG.
-  """
-  @type import_root :: %ImportRoot{
-          cid: ExIpfs.link(),
-          pin_error_msg: binary
-        }
-
-  @typedoc """
-  A struct that represents the stats of an import of a DAG.
-  """
-  @type import_stats :: %ImportStats{
-          block_bytes_count: integer | nil,
-          block_count: integer | nil
+  @type import :: %ExIpld.Import{
+          root: %{/: binary()},
+          stats: %{
+            block_bytes_count: integer | nil,
+            block_count: integer | nil
+          }
         }
 
   @doc """
@@ -78,15 +62,7 @@ defmodule ExIpld do
   https://docs.ipfs.tech/reference/kubo/rpc/#api-v0-dag-import
   """
   @spec import(binary, list()) :: {:ok, import()} | Api.error_response()
-  def import(data, opts \\ []) do
-    Logger.debug("import: #{inspect(opts)}")
-    opts = Keyword.put(opts, :stats, true)
-
-    multipart_content(data)
-    |> Api.post_multipart("/dag/import", query: opts)
-    |> Import.new()
-    |> okify()
-  end
+  defdelegate import(data, opts \\ []), to: ExIpld.Import
 
   @doc """
   Put an object to be encoded as a DAG object. There seems to be a bug in the
