@@ -1,5 +1,8 @@
 # ExIpld
 
+[![IPLD unit and integration tests](https://github.com/bahner/ex-ipld/actions/workflows/testsuite.yaml/badge.svg)](https://github.com/bahner/ex-ipld/actions/workflows/testsuite.yaml)
+[![Coverage Status](https://coveralls.io/repos/github/bahner/ex-ipld/badge.svg?branch=main)](https://coveralls.io/github/bahner/ex-ipld?branch=main)
+
 Elixir IPLD module. IPLD is linked data, so that you can build tree structures built up of discrete units (DAG). To learn more about IPLD visit https://ipld.io
 
 You can for example add a pseudo structure like:
