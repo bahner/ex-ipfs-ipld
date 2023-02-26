@@ -1,7 +1,7 @@
 # NB! This file is generated from templates/Dockerfile.
 # Make sure to make change to the template, not
 # the in situ file.
-name: IPFS Unit and integration tests
+name: IPLD unit and integration tests
 
 on:
   push:
@@ -27,7 +27,7 @@ jobs:
         elixir: ["1.14.3"]
     services:
       ipfs:
-        image: bahner/kubo:v0.17.0
+        image: ipfs/kubo:latest
         ports:
           - 5001:5001
     steps:
