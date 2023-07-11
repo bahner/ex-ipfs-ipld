@@ -44,7 +44,7 @@ by adding `ex_ipld` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:ex_ipld, "~> 0.0.1"}
+    {:ex_ipfs_ipld, "~> 1.0.0"}
   ]
 end
 ```

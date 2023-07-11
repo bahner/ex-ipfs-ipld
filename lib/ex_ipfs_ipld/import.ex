@@ -1,4 +1,4 @@
-defmodule ExIpld.Import do
+defmodule ExIpfsIpld.Import do
   @moduledoc false
 
   require Logger
@@ -15,7 +15,7 @@ defmodule ExIpld.Import do
     {:error, data}
   end
 
-  @spec new(list) :: ExIpld.import()
+  @spec new(list) :: ExIpfsIpld.import()
   def new(list) do
     [root | [stats]] = list
 
@@ -25,7 +25,7 @@ defmodule ExIpld.Import do
     }
   end
 
-  @spec import(binary, list()) :: {:ok, ExIpld.import()} | Api.error_response()
+  @spec import(binary, list()) :: {:ok, ExIpfsIpld.import()} | Api.error_response()
   def import(data, opts \\ []) when is_binary(data) do
     Logger.debug("import: #{inspect(opts)}")
     opts = Keyword.put(opts, :stats, true)

@@ -1,9 +1,9 @@
-defmodule ExIpld.ImportTest do
+defmodule ExIpfsIpld.ImportTest do
   @moduledoc false
 
   use ExUnit.Case, async: true
 
-  alias ExIpld.Import, as: Import
+  alias ExIpfsIpld.Import, as: Import
 
   test "fails on missing data" do
     catch_error(%Import{} = Import.new())
@@ -41,8 +41,10 @@ defmodule ExIpld.ImportTest do
   end
 
   test "test import" do
-    {:ok, value} = ExIpld.export("bafyreia353cr2t26iiuw5g2triyfelqehsu5peq4pn2u6t6q6oktrplzly")
-    {:ok, imported} = ExIpld.import(value)
+    {:ok, value} =
+      ExIpfsIpld.export("bafyreia353cr2t26iiuw5g2triyfelqehsu5peq4pn2u6t6q6oktrplzly")
+
+    {:ok, imported} = ExIpfsIpld.import(value)
     assert is_map(imported)
     assert is_map(imported.root)
     assert is_map(imported.stats)

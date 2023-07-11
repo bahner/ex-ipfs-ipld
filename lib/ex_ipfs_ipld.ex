@@ -1,6 +1,6 @@
-defmodule ExIpld do
+defmodule ExIpfsIpld do
   @moduledoc """
-  ExIpld handles linked data in IPFS.
+  ExIpfsIpld handles linked data in IPFS.
   """
   require Logger
 
@@ -13,7 +13,7 @@ defmodule ExIpld do
   @typedoc """
   A struct that represents the import of a DAG.
   """
-  @type import :: %ExIpld.Import{
+  @type import :: %ExIpfsIpld.Import{
           root: %{/: binary()},
           stats: %{
             block_bytes_count: integer | nil,
@@ -62,7 +62,7 @@ defmodule ExIpld do
   https://docs.ipfs.tech/reference/kubo/rpc/#api-v0-dag-import
   """
   @spec import(binary, list()) :: {:ok, import()} | Api.error_response()
-  defdelegate import(data, opts \\ []), to: ExIpld.Import
+  defdelegate import(data, opts \\ []), to: ExIpfsIpld.Import
 
   @doc """
   Put an object to be encoded as a DAG object. There seems to be a bug in the

@@ -6,14 +6,14 @@ defmodule ExIpld.MixProject do
 
   def project do
     [
-      app: :ex_ipld,
-      version: "0.0.1",
+      app: :ex_ipfs_ipld,
+      version: "1.0.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       package: package(),
       description: description(),
       deps: deps(),
-      source_url: "https://github.com/bahner/ex-ipld.git",
+      source_url: "https://github.com/bahner/ex-ipfs-ipld.git",
       test_coverage: [tool: ExCoveralls],
       preferred_cli_env: [
         coveralls: :test,
@@ -51,7 +51,7 @@ defmodule ExIpld.MixProject do
       files: ["lib", "mix.exs", "README*", "LICENSE*", "AUTHORS*"],
       maintainers: ["Lars Bahner"],
       licenses: ["GPLv3"],
-      links: %{"GitHub" => "https://github.com/bahner/ex-ipld"}
+      links: %{"GitHub" => "https://github.com/bahner/ex-ipfs-ipld"}
     ]
   end
 end
