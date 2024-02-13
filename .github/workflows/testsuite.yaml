@@ -28,7 +28,7 @@ jobs:
         elixir: ["1.14.5", "1.15", "1.16"]
     services:
       ipfs:
-        image: ipfs/kubo:v0.21.0
+        image: ipfs/kubo:v0.26.0
         ports:
           - 5001:5001
     steps:
