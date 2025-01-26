@@ -7,8 +7,8 @@ defmodule ExIpfsIpld.MixProject do
   def project do
     [
       app: :ex_ipfs_ipld,
-      version: "1.0.2",
-      elixir: "~> 1.14",
+      version: "1.0.3",
+      elixir: "~> 1.18",
       start_permanent: Mix.env() == :prod,
       package: package(),
       description: description(),

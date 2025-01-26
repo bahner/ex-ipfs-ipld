@@ -18,14 +18,14 @@ permissions:
   contents: read
 
 jobs:
-  build25:
+  test:
     name: Build and for test
     runs-on: ubuntu-latest
     strategy:
       fail-fast: true
       matrix:
-        otp: ["25", "26"]
-        elixir: ["1.14.5", "1.15", "1.16"]
+        otp: ["25", "26", "27"]
+        elixir: ["1.18"]
     services:
       ipfs:
         image: ipfs/kubo:v0.26.0

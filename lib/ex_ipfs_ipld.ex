@@ -47,7 +47,7 @@ defmodule ExIpfsIpld do
   def get(path, opts \\ []) do
     with data <- Api.post_query("/dag/get?arg=" <> path, query: opts) do
       data
-      |> Jason.decode!()
+      |> JSON.decode!()
       |> okify()
     end
   end
